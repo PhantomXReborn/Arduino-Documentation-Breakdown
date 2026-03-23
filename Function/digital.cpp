@@ -144,3 +144,5 @@ void loop() {
 Notes and Warnings
 The analog input pins can be used as digital pins, referred to as A0, A1, etc.
 */
+
+// All Material is made and referenced by: ArduinoDocs at https://docs.arduino.cc/language-reference/#functions
