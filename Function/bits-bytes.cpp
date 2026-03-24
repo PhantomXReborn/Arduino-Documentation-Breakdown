@@ -363,3 +363,6 @@ This is what the lowByte() function does behind the scenes:
 
 
 #define lowByte(w) ((uint8_t) ((w) & 0xFF))
+
+
+// All Material is made and referenced by: ArduinoDocs at https://docs.arduino.cc/language-reference/#functions
