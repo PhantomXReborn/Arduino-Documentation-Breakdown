@@ -1,3 +1,6 @@
+
+// digitalRead()
+
 /*
 Description
 Reads the value from a specified digital pin, either HIGH or LOW.
@@ -46,6 +49,7 @@ Arduino Pro Mini, and Arduino Mini’s A6 and A7 pins, which can only be used as
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// digitalWrite()
 
 /*
 Description
@@ -103,6 +107,7 @@ The exception is the Arduino Nano, Pro Mini, and Mini’s A6 and A7 pins, which 
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// pinMode()
 
 /*
 Description

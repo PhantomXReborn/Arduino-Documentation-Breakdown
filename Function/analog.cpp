@@ -1,3 +1,6 @@
+
+// analogRead()
+
 /*
 Description
 Reads the value from a specified analog input pin.
@@ -79,6 +82,7 @@ If the analog input pin is not connected to anything, the value returned by anal
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// analogReadResolution()
 
 /*
 Description
@@ -161,6 +165,7 @@ that automatically handle devices with a higher resolution ADC when these become
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// analogReference()
 
 /*
 Description
@@ -243,6 +248,7 @@ The two act as a voltage divider, so, for example, 2.5 VDC applied through the r
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// analogWrite()
 
 /*
 Description
@@ -304,6 +310,7 @@ This will be noticed mostly on low duty-cycle settings (e.g. 0 - 10) and may res
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// analogWriteResolution()
 
 /*
 Description
@@ -378,3 +385,5 @@ If you set the analogWriteResolution() value to a value higher than your boardâ€
 If you set the analogWriteResolution() value to a value lower than your boardâ€™s capabilities,
 the missing bits will be padded with zeros to fill the hardware required size.
 */
+
+// All Material is made and referenced by: ArduinoDocs at https://docs.arduino.cc/language-reference/#functions

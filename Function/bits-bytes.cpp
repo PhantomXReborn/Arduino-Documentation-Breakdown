@@ -1,3 +1,6 @@
+
+// bit()
+
 /*
 Description
 Create a bitmask with a single bit set at a specific position. Useful for bitwise operations, 
@@ -49,6 +52,7 @@ This is what the bit() function does behind the scenes:
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// bitClear()
 
 /*
 Description
@@ -102,6 +106,7 @@ This is what the bitClear() function does behind the scenes:
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// bitRead()
 
 /*
 Description
@@ -172,6 +177,7 @@ void readBit(String direction, long counter) {
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// bitSet()
 
 /*
 Description
@@ -226,6 +232,7 @@ This is what the bitSet() function does behind the scenes:
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// bitWrite()
 
 /*
 Description
@@ -266,6 +273,7 @@ void loop() {
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// highByte()
 
 /*
 Description
@@ -317,6 +325,7 @@ This is what the highByte() function does behind the scenes:
 
 //-----------------------------------------------------------------------------------------------------------------//
 
+// lowByte()
 
 /*
 Description
