@@ -300,3 +300,81 @@ The PWM outputs generated on pins 5 and 6 may have higher-than-expected duty cyc
 This is because of interactions with the millis() and delay() functions, which share the same internal timer used to generate those PWM outputs. 
 This will be noticed mostly on low duty-cycle settings (e.g. 0 - 10) and may result in a value of 0 not fully turning off the output on pins 5 and 6.
 */
+
+
+//-----------------------------------------------------------------------------------------------------------------//
+
+
+/*
+Description
+analogWriteResolution() is an extension of the Analog API to set the resolution of the analogWrite() function. 
+It defaults to 8 bits (values between 0 - 255) for backward compatibility with AVR based boards.
+
+Syntax
+Use the following function to leverage the full range of the DAC and PWM outputs:
+
+analogWriteResolution(bits)
+
+Parameters
+The function admits the following parameter:
+
+bits: determines the resolution (in bits) of the values used in the analogWrite() function. 
+The value can range from 1 to 32. If you choose a resolution higher or lower than your board’s hardware capabilities, 
+the value used in analogWrite() will be either truncated if it’s too high or padded with zeros if it’s too low. See the note below for details.
+
+Returns
+The function returns nothing.
+
+Example Code
+*/
+
+void setup() {
+  // open a serial connection
+  Serial.begin(9600);
+  // make our digital pin an output
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  // read the input on A0 and map it to a PWM pin
+  // with an attached LED
+  int sensorVal = analogRead(A0);
+  Serial.print("Analog Read : ");
+  Serial.print(sensorVal);
+
+  // the default PWM resolution
+  analogWriteResolution(8);
+  analogWrite(11, map(sensorVal, 0, 1023, 0, 255));
+  Serial.print(" , 8-bit PWM value : ");
+  Serial.print(map(sensorVal, 0, 1023, 0, 255));
+
+  // change the PWM resolution to 12 bits
+  analogWriteResolution(12);
+  analogWrite(12, map(sensorVal, 0, 1023, 0, 4095));
+  Serial.print(" , 12-bit PWM value : ");
+  Serial.print(map(sensorVal, 0, 1023, 0, 4095));
+
+  // change the PWM resolution to 4 bits
+  analogWriteResolution(4);
+  analogWrite(13, map(sensorVal, 0, 1023, 0, 15));
+  Serial.print(", 4-bit PWM value : ");
+  Serial.println(map(sensorVal, 0, 1023, 0, 15));
+
+  delay(5);
+}
+
+/*
+Notes and Warnings
+Boards Capabilities
+Boards with an 8-bit PWM resolution are capable of slicing the PWM duty cycle on 255 steps.
+Boards with an 10-bit PWM resolution are capable of slicing the PWM duty cycle on 1024 steps.
+Boards with an 12-bit PWM resolution are capable of slicing the PWM duty cycle on 4095 steps.
+Boards with an 16-bit PWM resolution are capable of slicing the PWM duty cycle on 65536 steps.
+Other Considerations
+If you set the analogWriteResolution() value to a value higher than your board’s capabilities, the Arduino will discard the extra bits.
+
+If you set the analogWriteResolution() value to a value lower than your board’s capabilities,
+the missing bits will be padded with zeros to fill the hardware required size.
+*/
